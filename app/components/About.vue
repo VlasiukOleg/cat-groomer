@@ -20,7 +20,7 @@ const features = [
 <template>
   <section
     id="about"
-    class="py-16 md:py-24 bg-[#f8f6f4] dark:bg-gray-900 overflow-hidden"
+    class="py-8 md:py-24 bg-[#f8f6f4] dark:bg-gray-900 overflow-hidden"
   >
     <UContainer>
       <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">

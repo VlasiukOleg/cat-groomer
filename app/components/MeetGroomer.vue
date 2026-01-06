@@ -9,10 +9,10 @@ const helpItems = [
 <template>
   <section
     id="meet"
-    class="py-16 md:py-24 px-4 md:px-6 bg-[#fafaf9] dark:bg-gray-950 overflow-hidden"
+    class="py-8 md:py-24 px-4 md:px-6 bg-[#fafaf9] dark:bg-gray-950 overflow-hidden"
   >
     <UContainer>
-      <div class="text-center mb-12 md:mb-16">
+      <div class="text-center mb-8 md:mb-16">
         <h2
           class="text-3xl md:text-4xl font-bold text-[#4a4a4a] dark:text-gray-100"
         >
@@ -21,13 +21,12 @@ const helpItems = [
       </div>
 
       <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
-        <div class="relative group order-2 md:order-1">
+        <div class="hidden md:block relative group order-2 md:order-1">
           <div
             class="absolute -inset-4 bg-primary-100/50 dark:bg-primary-900/10 rounded-[2.5rem] blur-2xl transition-all duration-500 group-hover:blur-3xl"
           ></div>
-
           <div
-            class="relative h-[400px] md:h-[600px] rounded-[2rem] overflow-hidden shadow-xl transition-transform duration-500 hover:scale-[1.02]"
+            class="relative h-[600px] rounded-[2rem] overflow-hidden shadow-xl transition-transform duration-500 hover:scale-[1.02] border-4 border-white dark:border-gray-800"
           >
             <img
               src="https://images.unsplash.com/photo-1725419876939-f8f9987cf0d2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
@@ -38,7 +37,9 @@ const helpItems = [
         </div>
 
         <div class="space-y-6 md:space-y-8 order-1 md:order-2">
-          <div class="space-y-4">
+          <div
+            class="flex flex-col items-center md:items-start text-center md:text-left space-y-6"
+          >
             <p
               class="text-xl md:text-2xl text-[#4a4a4a] dark:text-gray-100 font-medium"
             >
@@ -47,6 +48,21 @@ const helpItems = [
                 >Рімма</span
               >, я професійний кото-грумер.
             </p>
+
+            <div class="md:hidden relative">
+              <div
+                class="absolute -inset-2 bg-cameo-200/50 rounded-full blur-xl"
+              ></div>
+              <div
+                class="relative w-48 h-48 rounded-full overflow-hidden border-4 border-white shadow-lg"
+              >
+                <img
+                  src="/images/rimma-groomer.jpg"
+                  alt="Рімма Грумер"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+            </div>
 
             <p
               class="text-lg text-[#7a7a7a] dark:text-gray-400 leading-relaxed"
@@ -73,10 +89,10 @@ const helpItems = [
                 :key="index"
                 class="flex items-start gap-3 group/item transition-transform duration-300 hover:translate-x-2"
               >
-                <div class="mt-2">
-                  <UIcon name="i-ph-cat" class="w-5 h-5 text-cameo-400" />
+                <div class="mt-2 flex-shrink-0">
+                  <UIcon name="i-ph-cat" class="w-6 h-6 text-cameo-400" />
                 </div>
-                <p class="text-lg text-[#7a7a7a] dark:text-gray-400">
+                <p class="text-lg text-[#7a7a7a] dark:text-gray-400 text-left">
                   {{ item }}
                 </p>
               </li>
@@ -91,7 +107,7 @@ const helpItems = [
                 class="text-lg text-[#4a4a4a] dark:text-gray-200 italic leading-relaxed"
               >
                 "Ваш кіт — не <span class="font-bold">складний</span>, йому
-                просто потрібен правильный підхід"
+                просто потрібен правильний підхід 💙"
               </p>
             </div>
           </div>

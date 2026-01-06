@@ -10,7 +10,7 @@ const scrollToContact = () => {
 <template>
   <section
     id="hero"
-    class="relative min-h-[calc(100vh-64px)] flex items-center justify-center px-4 md:px-6 py-12 md:py-20 bg-[#f8f6f4] dark:bg-gray-900"
+    class="relative min-h-[calc(100vh-64px)] flex items-center justify-center px-4 md:px-6 py-8 md:py-20 bg-[#f8f6f4] dark:bg-gray-900"
   >
     <UContainer>
       <div
@@ -18,12 +18,12 @@ const scrollToContact = () => {
       >
         <div class="space-y-4 md:space-y-6 text-center md:text-left order-1">
           <h1
-            class="text-4xl md:text-5xl lg:text-6xl text-[#4a4a4a] dark:text-gray-100 font-bold leading-tight"
+            class="text-3xl md:text-5xl lg:text-6xl text-[#4a4a4a] dark:text-gray-100 font-bold leading-tight"
           >
             Ніжний догляд для вашого котика
           </h1>
 
-          <p class="text-lg md:text-xl text-[#7a7a7a] dark:text-gray-400">
+          <p class="text-base md:text-xl text-[#7a7a7a] dark:text-gray-400">
             Професійний котячий грумінг, створений з турботою про комфорт,
             безпеку та емоційний стан вашого кота. Без стресу, поспіху та
             насильницьких методів — лише уважний, індивідуальний підхід до
@@ -72,7 +72,7 @@ const scrollToContact = () => {
             label="Записатися на Прийом"
             @click="scrollToContact"
             variant="solid"
-            class="rounded-full bg-cameo-400 hover:bg-[#c4a590] p-5 text-xl"
+            class="bg-cameo-400 hover:bg-[#c4a590] py-3 px-5 text-xl cursor-pointer active:cameo-400"
           />
         </div>
       </div>
