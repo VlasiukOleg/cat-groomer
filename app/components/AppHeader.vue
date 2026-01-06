@@ -38,10 +38,10 @@ const items = computed<NavigationMenuItem[]>(() => [
 
     <template #right>
       <NuxtLink
-        to="tel:+380XXXXXXXXX"
+        to="tel:+380989147904"
         class="hidden lg:block text-sm font-medium hover:text-primary transition-colors mr-2"
       >
-        +38 (0XX) XXX-XX-XX
+        +38 (098) 914-79-04
       </NuxtLink>
 
       <UColorModeButton />
@@ -49,7 +49,7 @@ const items = computed<NavigationMenuItem[]>(() => [
       <UButton
         label="Записатись"
         variant="solid"
-        class="ml-2 rounded-full bg-cameo-400 hover:bg-[#c4a590]"
+        class="ml-2 hidden md:block rounded-full bg-cameo-400 hover:bg-[#c4a590]"
       />
     </template>
 
