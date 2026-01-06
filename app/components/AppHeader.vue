@@ -29,8 +29,8 @@ const items = computed<NavigationMenuItem[]>(() => [
   >
     <template #title>
       <div class="flex items-center gap-2">
-        <UIcon name="i-heroicons-sparkles" class="w-6 h-6 text-primary" />
-        <span class="font-bold">CatGroomer</span>
+        <UIcon name="i-ph-cat" class="w-6 h-6" />
+        <span class="font-bold">Грумінг для котиків</span>
       </div>
     </template>
 
