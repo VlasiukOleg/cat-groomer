@@ -9,7 +9,6 @@ const contactInfo = [
   { icon: "i-heroicons-map-pin", text: "вул. Котяча, 123", label: "Адреса" },
 ];
 
-// Состояние формы
 const state = reactive({
   name: undefined,
   email: undefined,
