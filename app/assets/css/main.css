@@ -1,0 +1,16 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+@theme {
+  --color-cameo-50: #fdfaf8;
+  --color-cameo-100: #f9f2ed;
+  --color-cameo-200: #f2e4db;
+  --color-cameo-300: #e8d0c2;
+  --color-cameo-400: #d4b5a0;
+  --color-cameo-500: #c29a80;
+  --color-cameo-600: #ad7f63;
+  --color-cameo-700: #8f654f;
+  --color-cameo-800: #745142;
+  --color-cameo-900: #5e4236;
+  --color-cameo-950: #312219;
+}
