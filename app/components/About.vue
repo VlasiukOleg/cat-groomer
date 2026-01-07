@@ -1,18 +1,29 @@
 <script setup lang="ts">
 const features = [
   {
-    title: "Сертифіковані Професіонали",
+    title: "Сертифікований кото-грумер",
     description:
-      "Усі грумери навчені спеціально для роботи з поведінкою та доглядом за котами",
+      "Я маю професійну сертифікацію та спеціалізоване навчання з грумінгу котів і роботи з їхньою поведінкою.",
   },
   {
-    title: "Досвід Без Стресу",
+    title: "Адаптація та привчання до процедур",
     description:
-      "Ми використовуємо заспокійливі техніки та працюємо в темпі вашого кота",
+      "Я допомагаю котикам поступово звикнути до грумінгу — особливо тим, хто боїться або має негативний досвід. Процес адаптації відбувається м’яко та без примусу.",
   },
   {
-    title: "Преміум Продукти",
-    description: "Тільки найкращі, безпечні для котів засоби для грумінгу",
+    title: "Контроль емоційного стану",
+    description:
+      "Під час кожної процедури я постійно стежу за емоційним і фізичним станом котика та коригую хід роботи за потреби.",
+  },
+  {
+    title: "Професійна косметика",
+    description:
+      "Використовую якісну професійну косметику для котів, яку підбираю індивідуально — відповідно до типу шерсті та стану шкіри.",
+  },
+  {
+    title: "Гуманний підхід",
+    description:
+      "Жодних фізичних методів впливу, силової фіксації чи стресових технік. У роботі застосовується виключно гуманний підхід з повагою до меж тварини.",
   },
 ];
 </script>
@@ -33,7 +44,7 @@ const features = [
             class="relative h-[350px] md:h-[500px] rounded-[2rem] overflow-hidden shadow-2xl transition-transform duration-500 hover:scale-[1.02]"
           >
             <img
-              src="https://images.unsplash.com/photo-1715828545824-feccd961b1ee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+              src="/images/about.jpg"
               alt="Професійний грумінг котів"
               class="w-full h-full object-cover"
             />
@@ -45,15 +56,14 @@ const features = [
             <h2
               class="text-3xl md:text-5xl font-bold text-[#4a4a4a] dark:text-gray-100 leading-tight"
             >
-              Чому Обирають Нас
+              Чому обирають мене як кото-грумера
             </h2>
             <p
-              class="text-lg text-[#7a7a7a] dark:text-gray-400 leading-relaxed"
+              class="text-base md:text-lg text-[#7a7a7a] dark:text-gray-400 leading-relaxed"
             >
-              Ми розуміємо, що коти — унікальні створіння з особливими
-              потребами. Наші сертифіковані грумери спеціалізуються на догляді
-              за котами, використовуючи ніжні техніки та створюючи спокійне
-              середовище без стресу.
+              Я працюю виключно з котами та розумію, що якісний грумінг — це не
+              швидкість, а безпека, адаптація та контроль емоційного стану
+              тварини.
             </p>
           </div>
 
@@ -63,9 +73,9 @@ const features = [
               :key="feature.title"
               class="flex items-start gap-4 group/item"
             >
-              <div class="flex-shrink-0 mt-1.5">
+              <div class="shrink-0 mt-1.5">
                 <div
-                  class="w-3 h-3 rounded-full bg-primary shadow-[0_0_10px_rgba(212,181,160,0.8)] group-hover/item:scale-150 transition-transform duration-300"
+                  class="w-3 h-3 rounded-full bg-cameo-400 shadow-[0_0_10px_rgba(212,181,160,0.8)] group-hover/item:scale-150 transition-transform duration-300"
                 ></div>
               </div>
 
