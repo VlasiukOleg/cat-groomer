@@ -29,7 +29,7 @@ const helpItems = [
             class="relative h-[600px] rounded-[2rem] overflow-hidden shadow-xl transition-transform duration-500 hover:scale-[1.02] border-4 border-white dark:border-gray-800"
           >
             <img
-              src="https://images.unsplash.com/photo-1725419876939-f8f9987cf0d2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+              src="/images/rimma-groomer.jpg"
               alt="Рімма - професійний грумер"
               class="w-full h-full object-cover"
             />

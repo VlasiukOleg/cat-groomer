@@ -8,6 +8,10 @@ const items = computed<NavigationMenuItem[]>(() => [
     to: "#",
   },
   {
+    label: "Давайте знайомитись",
+    to: "#meet",
+  },
+  {
     label: "Послуги",
     to: "#services",
   },

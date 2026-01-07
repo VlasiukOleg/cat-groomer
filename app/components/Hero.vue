@@ -72,7 +72,7 @@ const scrollToContact = () => {
             label="Записатися на Прийом"
             @click="scrollToContact"
             variant="solid"
-            class="bg-cameo-400 hover:bg-[#c4a590] py-3 px-5 text-xl cursor-pointer active:cameo-400"
+            class="bg-cameo-400 hover:bg-[#3866bd] py-3 px-5 text-xl cursor-pointer active:cameo-400"
           />
         </div>
       </div>
