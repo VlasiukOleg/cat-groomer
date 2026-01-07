@@ -65,14 +65,14 @@ const helpItems = [
             </div>
 
             <p
-              class="text-lg text-[#7a7a7a] dark:text-gray-400 leading-relaxed"
+              class="text-base md:text-lg text-[#7a7a7a] dark:text-gray-400 leading-relaxed"
             >
               Я спеціалізуюся саме на котах і працюю з урахуванням їх характеру,
               віку та рівня адаптації до процедур.
             </p>
 
             <p
-              class="text-lg text-[#7a7a7a] dark:text-gray-400 leading-relaxed"
+              class="text-base md:text-lg text-[#7a7a7a] dark:text-gray-400 leading-relaxed"
             >
               Моя мета — не просто красива шерсть, а спокійний кіт і здоровий
               догляд, який не шкодить психіці тварини.
@@ -83,16 +83,18 @@ const helpItems = [
             <p class="text-lg text-[#4a4a4a] dark:text-gray-200 font-bold mb-4">
               Я допомагаю:
             </p>
-            <ul class="space-y-4">
+            <ul class="space-y-3 md:space-y-4">
               <li
                 v-for="(item, index) in helpItems"
                 :key="index"
-                class="flex items-start gap-3 group/item transition-transform duration-300 hover:translate-x-2"
+                class="flex items-center gap-3 group/item transition-transform duration-300 hover:translate-x-2"
               >
-                <div class="mt-2 flex-shrink-0">
+                <div class="mt-2 shrink-0">
                   <UIcon name="i-ph-cat" class="w-6 h-6 text-cameo-400" />
                 </div>
-                <p class="text-lg text-[#7a7a7a] dark:text-gray-400 text-left">
+                <p
+                  class="text-base md:text-lg text-[#7a7a7a] dark:text-gray-400 text-left"
+                >
                   {{ item }}
                 </p>
               </li>

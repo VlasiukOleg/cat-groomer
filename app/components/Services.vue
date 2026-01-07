@@ -1,10 +1,10 @@
 <script setup lang="ts">
-// Масив послуг
 const servicesList = [
   {
     icon: "i-ph-drop",
     title: "Купання і вичісування",
     price: "1700 грн",
+    subPrice: "2050 грн — для мейн-кунів",
     duration: "2 години",
     items: [
       "Стрижка кігтів — акуратно та безпечно",
@@ -75,7 +75,7 @@ const scrollToContact = () => {
 </script>
 
 <template>
-  <section id="services" class="py-16 md:py-24 bg-white dark:bg-gray-950">
+  <section id="services" class="py-8 md:py-24 bg-white dark:bg-gray-950">
     <UContainer>
       <div class="text-center mb-12">
         <h2
@@ -92,7 +92,7 @@ const scrollToContact = () => {
           class="bg-[#fafaf9] dark:bg-gray-900 rounded-2xl md:rounded-3xl border border-[#e8e4e0] dark:border-gray-800 overflow-hidden shadow-sm"
         >
           <div
-            class="bg-linear-to-r from-[#4279ce] to-[#cee3f6] px-4 py-3 md:px-6 md:py-4"
+            class="bg-linear-to-r from-[#4279ce] to-cameo-400 px-4 py-3 md:px-6 md:py-4"
           >
             <div class="flex items-center gap-3 md:gap-4">
               <div
@@ -120,6 +120,7 @@ const scrollToContact = () => {
                   trigger:
                     'text-[#7a7a7a] font-bold px-0 hover:no-underline focus:ring-0',
                   trailingIcon: 'w-5 h-5 text-cameo-500',
+                  label: 'text-base',
                 }"
               >
                 <template #content>
@@ -170,15 +171,22 @@ const scrollToContact = () => {
                       <span
                         class="font-bold text-[#4a4a4a] flex items-center gap-1"
                       >
-                        <UIcon name="i-ph-banknote" class="text-cameo-500" />
+                        <UIcon name="i-ph-money" class="text-cameo-400" />
                         {{ service.price }}
                       </span>
                       <span
                         class="text-xs text-[#7a7a7a] flex items-center gap-1"
                       >
-                        <UIcon name="i-ph-clock" class="text-cameo-500" />
+                        <UIcon name="i-ph-clock" class="text-cameo-400" />
                         {{ service.duration }}
                       </span>
+                    </div>
+                    <div
+                      v-if="service.subPrice"
+                      class="font-bold text-[#4a4a4a] text-base -mt-2"
+                    >
+                      <UIcon name="i-ph-money" class="text-cameo-400" />
+                      {{ service.subPrice }}
                     </div>
                   </div>
                 </template>
@@ -194,7 +202,7 @@ const scrollToContact = () => {
               </p>
 
               <div class="flex justify-between items-start gap-8">
-                <div class="flex-grow space-y-6">
+                <div class="grow space-y-6">
                   <ul class="grid grid-cols-2 gap-x-8 gap-y-3">
                     <li
                       v-for="point in service.items"
@@ -236,9 +244,16 @@ const scrollToContact = () => {
                   <div
                     class="flex items-center gap-2 text-xl font-bold text-[#4a4a4a]"
                   >
-                    <UIcon name="i-ph-banknote" class="text-cameo-500" />
+                    <UIcon name="i-ph-money" class="text-cameo-500" />
                     {{ service.price }}
                   </div>
+                  <div
+                    v-if="service.subPrice"
+                    class="font-bold text-[#4a4a4a] text-lg -mt-2"
+                  >
+                    {{ service.subPrice }}
+                  </div>
+
                   <div class="flex items-center gap-2 text-sm text-[#7a7a7a]">
                     <UIcon name="i-ph-clock" class="text-cameo-500" />
                     {{ service.duration }}
