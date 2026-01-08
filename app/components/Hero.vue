@@ -36,7 +36,7 @@ const scrollToContact = () => {
               label="Записатися на Прийом"
               @click="scrollToContact"
               variant="solid"
-              class="rounded-full bg-cameo-400 hover:bg-[#c4a590] p-5 text-xl"
+              class="rounded-full bg-cameo-400 hover:bg-[#3866bd] p-5 text-xl"
             />
           </div>
         </div>
