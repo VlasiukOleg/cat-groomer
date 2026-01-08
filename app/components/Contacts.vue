@@ -1,42 +1,78 @@
 <script setup lang="ts">
+import { object, string, array } from "yup";
+import type { InferType } from "yup";
+import type { FormSubmitEvent } from "@nuxt/ui";
+
+// Дані для контактних карток
 const contactInfo = [
-  { 
-    icon: "i-ph-phone", 
-    text: "(098) 914-79-04", 
+  {
+    icon: "i-ph-phone",
+    text: "(098) 914-79-04",
     label: "Телефон",
-    href: "tel:+380989147904" 
+    href: "tel:+380989147904",
   },
   {
-    icon: "i-ph-instagram-logo", 
-    text: "rimmagroomer", 
+    icon: "i-ph-instagram-logo",
+    text: "rimmagroomer",
     label: "Instagram",
-    href: "https://www.instagram.com/rimmagroomer?igsh=MWV3dWUyaDVmeWdhcw=="
+    href: "https://www.instagram.com/rimmagroomer?igsh=MWV3dWUyaDVmeWdhcw==",
   },
-  { 
-    icon: "i-ph-map-pin", 
-    text: "Тютюнника, 56", 
+  {
+    icon: "i-ph-map-pin",
+    text: "Тютюнника, 56",
     label: "Адреса",
-    href: "https://www.google.com/maps/search/?api=1&query=вулиця+Василя+Тютюнника,+56,+Київ"
+    href: "https://www.google.com/maps/search/?api=1&query=вулиця+Василя+Тютюнника,+56,+Київ",
   },
 ];
 
+// Назви послуг для CheckboxGroup
+const servicesOptions = [
+  "Купання і вичісування",
+  "Вичісування",
+  "Візит знайомство",
+  "Манікюр",
+];
+
+const schema = object({
+  name: string().required("Будь ласка, вкажіть ваше ім'я"),
+  phone: string()
+    .matches(/^(?:\+?38)?0\d{9}$/, "Формат: 0981234567")
+    .required("Телефон обов'язковий"),
+  services: array().min(1, "Оберіть хоча б одну послугу").required(),
+});
+
+type Schema = InferType<typeof schema>;
+
 const state = reactive({
   name: undefined,
-  email: undefined,
-  catName: undefined,
+  phone: undefined,
+  services: [], // Порожній масив для CheckboxGroup
   message: undefined,
 });
+
+const toast = useToast();
+
+async function onSubmit(event: FormSubmitEvent<Schema>) {
+  console.log("Ви обрали:", event.data.services);
+  toast.add({
+    title: "Повідомлення надіслано!",
+    description: "Ми зв’яжемося з вами найближчим часом.",
+    color: "primary",
+  });
+}
 </script>
 
 <template>
-  <section id="contacts" class="py-8 md:py-24 bg-white dark:bg-gray-950">
+  <section id="contacts" class="py-16 md:py-24 bg-white dark:bg-gray-950">
     <UContainer>
-      <div class="max-w-4xl mx-auto text-center mb-8 md:mb-16 space-y-2">
-        <h2 class="text-3xl md:text-5xl font-bold text-[#4a4a4a] dark:text-gray-100">
+      <div class="max-w-4xl mx-auto text-center mb-8 md:mb-12 space-y-2">
+        <h2
+          class="text-3xl md:text-5xl font-bold text-[#4a4a4a] dark:text-gray-100"
+        >
           Зв'яжіться з Нами
         </h2>
-        <p class="text-sm md:text-xl text-[#7a7a7a] dark:text-gray-400 px-4">
-          Готові побалувати свого котика? Ми завжди на зв'язку.
+        <p class="text-lg md:text-xl text-[#7a7a7a] dark:text-gray-400">
+          Готові побалувати свого котика? Ми будемо раді бачити Вас.
         </p>
       </div>
 
@@ -59,60 +95,65 @@ const state = reactive({
               />
             </div>
             <div class="overflow-hidden px-1">
-              <p class="text-xs uppercase tracking-tighter md:tracking-[0.2em] text-[#aaa] mb-0.5 font-semibold">
+              <p
+                class="text-xs uppercase tracking-tighter md:tracking-[0.2em] text-[#aaa] mb-0.5 font-semibold"
+              >
                 {{ item.label }}
               </p>
-              <p class="text-xs md:text-base font-bold text-[#4a4a4a] dark:text-gray-200 truncate group-hover:text-[#8b6f5c]">
+              <p
+                class="text-xs md:text-base font-bold text-[#4a4a4a] dark:text-gray-200 truncate group-hover:text-[#8b6f5c]"
+              >
                 {{ item.text }}
               </p>
             </div>
           </a>
         </div>
+        <div
+          class="bg-[#f8f6f4] dark:bg-gray-900 rounded-[2.5rem] p-6 md:p-12 border border-[#f0edea] dark:border-gray-800 shadow-sm"
+        >
+          <UForm
+            :schema="schema"
+            :state="state"
+            class="space-y-6"
+            @submit="onSubmit"
+          >
+            <div class="grid md:grid-cols-2 gap-6">
+              <UFormField label="Ваше Ім'я" name="name" size="xl">
+                <UInput
+                  v-model="state.name"
+                  placeholder="Ваше ім'я?"
+                  class="w-full"
+                  variant="outline"
+                />
+              </UFormField>
 
-        <div class="bg-[#f8f6f4] dark:bg-gray-900 rounded-[2.5rem] p-6 md:p-12 shadow-sm border border-[#f0edea] dark:border-gray-800">
-          <form class="space-y-4 md:space-y-6" @submit.prevent>
-            <div class="grid md:grid-cols-3 gap-4">
-              <UInput
-                v-model="state.name"
-                placeholder="Ваше Ім'я"
-                size="xl"
-                variant="none"
-                class="bg-white dark:bg-gray-800 rounded-2xl px-2 shadow-sm border border-gray-100 dark:border-gray-700"
-              />
-              <UInput
-                v-model="state.catName"
-                placeholder="Ім'я Котика"
-                size="xl"
-                variant="none"
-                class="bg-white dark:bg-gray-800 rounded-2xl px-2 shadow-sm border border-gray-100 dark:border-gray-700"
-              />
-              <UInput
-                v-model="state.email"
-                placeholder="Ваш Контакт"
-                size="xl"
-                variant="none"
-                class="bg-white dark:bg-gray-800 rounded-2xl px-2 shadow-sm border border-gray-100 dark:border-gray-700"
-              />
+              <UFormField label="Номер телефону" name="phone" size="xl">
+                <UInput
+                  v-model="state.phone"
+                  placeholder="0981234567"
+                  type="tel"
+                  class="w-full"
+                  variant="outline"
+                />
+              </UFormField>
             </div>
 
-            <UTextarea
-              v-model="state.message"
-              placeholder="Розкажіть нам про ваші побажання..."
-              size="xl"
-              variant="none"
-              :rows="4"
-              class="bg-white dark:bg-gray-800 rounded-3xl px-2 py-2 shadow-sm border border-gray-100 dark:border-gray-700 w-full"
-              autoresize
-            />
+            <UFormField label="Оберіть послуги (обов'язково)" name="services">
+              <UCheckboxGroup
+                v-model="state.services"
+                :items="servicesOptions"
+                variant="card"
+              />
+            </UFormField>
 
             <UButton
               type="submit"
-              label="Надіслати Повідомлення"
+              label="Записатись на візит"
               size="xl"
               block
-              class="rounded-full py-4 md:py-5 text-base md:text-lg font-bold transition-all duration-300 bg-cameo-400 hover:bg-[#3866bd] shadow-md hover:shadow-lg"
+              class="rounded-full py-4 text-lg font-bold bg-cameo-400 hover:bg-[#3866bd] text-white shadow-md transition-all"
             />
-          </form>
+          </UForm>
         </div>
       </div>
     </UContainer>

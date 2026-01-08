@@ -96,6 +96,7 @@ const features = [
           </ul>
         </div>
       </div>
+      <AboutNoShaveAccordion />
     </UContainer>
   </section>
 </template>
